@@ -20,4 +20,5 @@ std::vector< char > foo(std::list< Human >& people)
     );
 
     std::reverse(result.begin(), result.end());
+    return result;
 }
