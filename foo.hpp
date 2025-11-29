@@ -8,10 +8,16 @@
 
 std::vector< char > foo(std::list< Human >& people)
 {
-    std::vector< char > retval(people.size());
-    std::list< Human >::reverse_iterator it = people.rbegin();
-    auto porownanie = [&](char d) { return it->isMonster() ? 'n' : 'y'; };
-    std::for_each(retval.begin(), retval.end(), porownanie);
+    std::vector<char> result;
+    result.reserve(people.size());
 
-    return retval;
+    std::for_each(people.begin(), people.end(),
+        [&](Human& h)
+    {
+        h.birthday();
+        result.push_back(h.isMonster() ? 'n' : 'y');
+    }
+    );
+
+    std::reverse(result.begin(), result.end());
 }
