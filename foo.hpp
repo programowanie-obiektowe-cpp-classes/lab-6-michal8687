@@ -9,10 +9,10 @@
 std::vector< char > foo(std::list< Human >& people)
 {
     std::vector< char > retval(people.size());
-    std::vector< char >::iterator it = people.begin();
+    std::vector< Human >::iterator it = people.rbegin();
 
     // Twoja implementacja tutaj
-    auto porownanie = [it]() { return it++.isMonster() ? 'n' : 'y'; };
+    auto porownanie = [it]() { return *it++.isMonster() ? 'n' : 'y'; };
     std::for_each(retval.begin(), retval.end(), porownanie);
 
     return retval;
