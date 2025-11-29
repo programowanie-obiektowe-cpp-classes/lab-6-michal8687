@@ -13,7 +13,7 @@ std::vector< char > foo(std::list< Human >& people)
 
     // Twoja implementacja tutaj
     auto porownanie = [it]() { return it++.isMonster() ? 'n' : 'y'; };
-    std::for_each(retval.begin(), retval.end(), printElement);
+    std::for_each(retval.begin(), retval.end(), porownanie);
 
     return retval;
 }
